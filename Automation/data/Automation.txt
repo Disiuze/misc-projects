@@ -10,6 +10,8 @@
 
 outfit `"HAL-500 Automation Matrix`
 	cost 12500000
+	category "Systems"
+	thumbnail "outfit/unknown"
 	automaton 1
 	"outfit space" -25
 	"cargo space" -15
