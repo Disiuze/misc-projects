@@ -1,0 +1,39 @@
+# Copyright (c) 2016 by Rafael Ramawadh
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+mission "Landing Fee"
+	name "Fees"
+	repeat
+	landing
+	to offer
+		has "event: initial deployment 3"
+	on offer
+		conversation
+			`Due to the militarization of the South, you are now required to pay a fixed landing fee (<payment> will be lost).`
+		payment -5000
+		fail
+		
+mission "Ship Taxes"
+	name "Tax"
+	repeat
+	landing
+	to offer
+		has "event: initial deployment 3"
+		or
+			has "ships: Transport"
+			has "ships: Light Freighter"
+			has "ships: Interceptor"
+			has "ships: Medium Warship"
+			has "ships: Heavy Warship"
+	on offer
+		conversation
+			`Now that you've owned a ship for nearly one year, you are required to pay a fixed tax (<payment> will be lost).`
+		payment -10000
+		fail
