@@ -8,16 +8,101 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-mission "Landing Fee"
+mission "Landing Fee (FW)"
 	name "Fees"
 	repeat
 	landing
+	source
+		government "Free Worlds"
 	to offer
 		has "event: initial deployment 3"
 	on offer
-		conversation
-			`Due to the militarization of the South, you are now required to pay a fixed landing fee (<payment> will be lost).`
+		dialog
+			`The authorities of the planet require you to pay a landing fee (<payment>).`
+		payment -1000
+		fail
+		
+mission "Landing Fee (Rep/Neutra/Ind)"
+	name "Fees"
+	repeat
+	landing
+	source
+		government "Republic" "Neutral" "Independent"
+	to offer
+		has "event: initial deployment 3"
+	on offer
+		dialog
+			`The authorities of the planet require you to pay a landing fee (<payment>).`
+		payment -4000
+		fail
+		
+mission "Landing Fee (FW)"
+	name "Fees"
+	repeat
+	landing
+	source
+		attributes deep
+	to offer
+		has "event: initial deployment 3"
+	on offer
+		dialog
+			`The authorities of the planet require you to pay a landing fee (<payment>).`
+		payment -8000
+		fail
+		
+mission "Landing Fee (Synd)"
+	name "Fees"
+	repeat
+	landing
+	source
+		government "Syndicate"
+	to offer
+		has "event: initial deployment 3"
+	on offer
+		dialog
+			`The authorities of the planet require you to pay a landing fee (<payment>).`
 		payment -5000
+		fail
+		
+mission "Landing Fee (Efret)"
+	name "Fees"
+	repeat
+	landing
+	source
+		government "Kor Efret"
+	on offer
+		dialog
+			`The authorities of the planet require you to pay a landing fee (<payment>).`
+		payment -10000
+		fail
+		
+mission "Landing Fee (Wanderer)"
+	name "Fees"
+	repeat
+	landing
+	source
+		government "Wanderers"
+	to offer
+		not "Wanderers: Diplomacy: done"
+	on offer
+		dialog
+			`The authorities of the planet require you to pay a landing fee (<payment> will be lost).`
+		payment -4000
+		fail
+		
+mission "Landing Fee (Quarg)"
+	name "Fees"
+	repeat
+	landing
+	source
+		government "Quarg"
+	to offer
+		has "event: battle for Rastaban"
+		not "event: battle for zeta aquilae"
+	on offer
+		dialog
+			`The authorities of the planet require you to pay a landing fee (<payment>).`
+		payment -7000
 		fail
 		
 mission "Ship Taxes"
@@ -33,7 +118,7 @@ mission "Ship Taxes"
 			has "ships: Medium Warship"
 			has "ships: Heavy Warship"
 	on offer
-		conversation
-			`Now that you've owned a ship for nearly one year, you are required to pay a fixed tax (<payment> will be lost).`
+		dialog
+			`Now that you've owned a ship for nearly one year, you are required to pay a fixed tax (<payment>).`
 		payment -10000
 		fail
