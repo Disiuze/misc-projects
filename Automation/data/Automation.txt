@@ -8,7 +8,7 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-outfit `"HAL-500 Automation Matrix`
+outfit `"HAL-500" Automation Matrix`
 	cost 12500000
 	category "Systems"
 	thumbnail "outfit/unknown"
