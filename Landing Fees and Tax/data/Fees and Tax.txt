@@ -36,7 +36,7 @@ mission "Landing Fee (Rep/Neutra/Ind)"
 		payment -4000
 		fail
 		
-mission "Landing Fee (FW)"
+mission "Landing Fee (Deep)"
 	name "Fees"
 	repeat
 	landing
